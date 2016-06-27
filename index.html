@@ -3,11 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Boris Fucked Me</title>
+  <meta name="description" content="Dispatches from a post-referendum Britain. Tracking the damage Boris & Co have wrought.">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/jkymarsh/tiny-responsive-grid/master/trg.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeplate-starter-kit/3.0.1/css/typeplate.min.css">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Boris Fucked Me">
+  <meta name="twitter:description" content="Dispatches from a post-referendum Britain. Tracking the damage Boris & Co have wrought.">
+  <meta name="twitter:creator" content="@Minkovsky">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="Boris Fucked Me" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.borisfuckedme.com/" />
+  <meta property="og:description" content="Dispatches from a post-referendum Britain. Tracking the damage Boris & Co have wrought." />
+  <meta property="og:site_name" content="borisfucked.me" />
+
+
   <style media="screen">
+    body {
+      padding-bottom: 2em;
+    }
     .container {
       margin: 0 auto;
     }
@@ -19,6 +38,22 @@
       display: block;
       margin: 0 auto;
     }
+    .ytembed {
+    	position: relative;
+    	padding-bottom: 56.25%; /* 16:9 */
+    	padding-top: 25px;
+    	height: 0;
+    }
+    .ytembed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .container.video {
+      margin-bottom: 2em;
+    }
   </style>
 </head>
 <body>
@@ -26,23 +61,39 @@
     <h1>Boris Fucked Me</h1>
     <p>A site dedicated to tracking the damage Boris has done.</p>
   </div>
-  <div class="container">
+  <div class="container video">
     <div class="row">
-      <div class="span-12-t">
-        <iframe width="360" height="215" src="https://www.youtube.com/embed/oxDwxNcURTU" frameborder="0" allowfullscreen class="center"></iframe>
+      <div class="span-12-t ytembed">
+        <iframe src="https://www.youtube.com/embed/rETo8MJ8NuA" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
+  </div>
+  <div class="container">
     <div class="row">
       <div class="span-12-t">
         <h2>The Obvious</h2>
         <ul>
           <li>Even after <a href="http://www.itv.com/news/2016-05-11/uk-does-get-back-some-of-350m-it-sends-to-eu-boris-johnson-admits/">admitting that this is not the case</a>, Boris continued to use the £350m per week figure to mislead the public into voting Leave.</li>
+          <li>Moments after the referendum results were announced, <a href="http://www.telegraph.co.uk/business/2016/06/27/george-osborne-to-speak-in-attempt-to-calm-markets-following-bre/">the Pound and the markets dropped harder than Skrillex's career</a> and we're still not done.</li>
+        </ul>
+        <h2>The Less Obvious</h2>
+        <ul>
+          <li>The referendum may never have been about racism or bigotry, but it certainly emboldened racists and bigots. See <a href="https://twitter.com/PostRefRacism">@PostRefRacism on Twitter</a>.</li>
         </ul>
       </div>
     </div>
     <div class="row">
       <div class="span-12-t">
-        <a href="https://github.com/FLamparski/borisfacts">Contribute to the list on GitHub</a>
+        <h2>About This</h2>
+        <p>
+          We want to create a comprehensive archive of how the referendum result and the potential Brexit impacts people, and how this result came into being.
+        </p>
+        <p>We need more. We are looking for stories about how Boris Johonson or the Brexit in general affected you negatively, as well as ways in which he may have misled the public into
+          voting to leave the European Union. Over the coming days and weeks, we will be working on a way for you to submit your own personal post-Brexit story.</p>
+        <p><a href="https://github.com/FLamparski/borisfacts">Contribute to the list on GitHub</a></p>
+        <p>
+          Site made by <a href="https://twitter.com/Minkovsky">@Minkovsky</a>. Video made by <a href="https://twitter.com/TomSFHaines">Tom</a>.
+        </p>
       </div>
     </div>
   </div>
