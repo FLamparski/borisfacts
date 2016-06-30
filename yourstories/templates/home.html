@@ -1,0 +1,50 @@
+{% extends 'layouts/master.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col span-12-t">
+      <h2>Your Stories</h2>
+      <p>
+        We would like to hear from you about how Brexit is affecting you. We have a total of {{ num_stories }} stor{% if num_stories == 1 %}y{% else %}ies{% endif %} already.
+      </p>
+      {% if num_stories > 0 %}
+        <p>
+          The most recent stories:
+        </p>
+        <ul>
+          {% for story in stories %}
+            <li><a href="{% url 'yourstories:story' story.id %}">{{ story.title }}</a> &mdash; {{ story.submitted_at }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      <p>
+        <a href="{% url 'yourstories:index' %}">See more</a> or <a href="{% url 'yourstories:post' %}">submit your own</a>.
+      </p>
+      <h2>The Obvious</h2>
+      <ul>
+        <li>Even after <a href="http://www.itv.com/news/2016-05-11/uk-does-get-back-some-of-350m-it-sends-to-eu-boris-johnson-admits/">admitting that this is not the case</a>, Boris continued to use the £350m per week figure to mislead the public into voting Leave.</li>
+        <li>Moments after the referendum results were announced, <a href="http://www.telegraph.co.uk/business/2016/06/27/george-osborne-to-speak-in-attempt-to-calm-markets-following-bre/">the Pound and the markets dropped harder than Skrillex's career</a> and we're still not done.</li>
+      </ul>
+      <h2>The Less Obvious</h2>
+      <ul>
+        <li>The referendum may never have been about racism or bigotry, but it certainly emboldened racists and bigots. See <a href="https://twitter.com/PostRefRacism">@PostRefRacism on Twitter</a>.</li>
+        <li><a href="http://www.independent.co.uk/news/uk/politics/brexit-eu-referendum-campaigners-there-is-no-plan-next-pm-tory-leadership-contest-a7104711.html">There is no plan,</a> according to one Brexit campaigner.</li>
+        <li>The referendum triggered <a href="http://www.theguardian.com/politics/2016/jun/26/labour-shadow-cabinet-resignations-jeremy-corbyn-who-has-gone">a massive shadow cabinet reshuffle</a>, with many senior officials leaving.</li>
+        <li>The UK may stay in the single market... <a href="http://www.theguardian.com/politics/2016/jun/27/brussels-rejects-boris-johnson-pipe-dream-over-single-market-access">provided it accepts the EU rules without having a say over them</a>.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container video">
+  <div class="row">
+    <div class="col span-12-t">
+      <h2>And The Piggy</h2>
+    </div>
+    <div class="col span-12-t ytembed">
+      <iframe src="https://www.youtube.com/embed/rETo8MJ8NuA" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+{% endblock %}

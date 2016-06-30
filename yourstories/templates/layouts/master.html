@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Boris Fucked Me{% endblock %}</title>
+  <meta name="description" content="Dispatches from a post-referendum Britain. Tracking the damage Boris & Co have wrought.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/jkymarsh/tiny-responsive-grid/master/trg.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typeplate-starter-kit/3.0.1/css/typeplate.min.css">
+  <link rel="stylesheet" href="{% static 'style.css' %}" charset="utf-8">
+
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% block twtitle %}Boris Fucked Me{% endblock %}">
+  <meta name="twitter:description" content="Dispatches from a post-referendum Britain. Tracking the damage Boris & Co have wrought.">
+  <meta name="twitter:creator" content="@Minkovsky">
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="{% block fbtitle %}Boris Fucked Me{% endblock %}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://www.borisfuckedme.com{% block link %}/{% endblock %}" />
+  <meta property="og:description" content="Dispatches from a post-referendum Britain. Tracking the damage Boris & Co have wrought." />
+  <meta property="og:site_name" content="borisfucked.me" />
+</head>
+<body>
+  <div class="container banner">
+    <h1><a href="{% url 'yourstories:home' %}">Boris Fucked Me</a></h1>
+    <p>A site dedicated to tracking the damage Boris has done.</p>
+  </div>
+  {% block content %}{% endblock %}
+  <div class="container">
+    <div class="row">
+      <div class="col span-12-t">
+        <hr>
+        <h4>About This</h4>
+        <p>
+          We want to create a comprehensive archive of how the referendum result and the potential Brexit impacts people, and how this result came into being.
+        </p>
+        <p>We need more. We are looking for stories about how Boris Johonson or the Brexit in general affected you negatively, as well as ways in which he may have misled the public into
+          voting to leave the European Union. Over the coming days and weeks, we will be working on a way for you to submit your own personal post-Brexit story.</p>
+        <p><a href="https://github.com/FLamparski/borisfacts">Contribute to the list on GitHub</a></p>
+        <p>
+          Site made by <a href="https://twitter.com/Minkovsky">@Minkovsky</a>. Video made by <a href="https://twitter.com/TomSFHaines">Tom</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<article class="story" id="story-{{ story.id }}">
+  <header>
+    <h3><a href="{% url 'yourstories:story' story.id %}">{{ story.title }}</a></h3>
+    <p class="byline">Submitted by {{ story.author|default:'Anonymous' }} on {{ story.submitted_at }}</p>
+  </header>
+  <div class="content">
+    {{ story.content|linebreaks }}
+  </div>
+</article>

@@ -1,0 +1,21 @@
+{% extends 'layouts/master.html' %}
+
+{% block title %}{{ story.title }} | Boris Fucked Me{% endblock %}
+{% block twtitle %}{{ story.title }}{% endblock %}
+{% block fbtitle %}{{ story.title }}{% endblock %}
+{% block link %}{% url 'yourstories:story' story.id %}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col span-12-t">
+      {% if not story.published %}
+        <p>
+          This story is not published and will not appear on the list. Please wait for a moderator to approve it.
+        </p>
+      {% endif %}
+      {% include 'partials/_story.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}

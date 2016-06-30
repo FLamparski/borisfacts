@@ -1,0 +1,22 @@
+{% extends 'layouts/master.html' %}
+
+{% block title %}Your Stories | Boris Fucked Me{% endblock %}
+{% block twtitle %}Your Stories | Boris Fucked Me{% endblock %}
+{% block fbtitle %}Your Stories | Boris Fucked Me{% endblock %}
+{% block link %}{% url 'yourstories:index' %}{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col span-12-t">
+        {% if stories %}
+          {% for story in stories %}
+            {% include 'partials/_story.html' %}
+          {% endfor %}
+        {% else %}
+          <p>No stories yet. <a href="{% url 'yourstories:post' %}">Submit one?</a></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
