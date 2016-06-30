@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.core.mail import mail_admins, send_mail
 
 from .models import Story
 
@@ -36,6 +37,10 @@ def post_handler(request):
 
     story = Story(**story_dict)
     story.save()
+    mail_admins(
+        subject='New story submitted: {} by {}'.format(story.title, story.author or 'Anonymous'),
+        message='A new story was submitted, please view it on the admin portal. Id: {}'.format(story.id)
+    )
     return HttpResponseRedirect(reverse('yourstories:story', args=(story.id,)))
 
 def story(request, id):
