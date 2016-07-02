@@ -21,7 +21,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'A_BAD_SECRET'
+SECRET_KEY = os.getenv('BORIS_SECRET', 'A_BAD_SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,6 +86,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+conn_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(conn_from_env)
 
 
 # Password validation
