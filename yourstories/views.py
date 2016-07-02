@@ -46,7 +46,7 @@ def post_handler(request):
     send_mail(
         subject='Please confirm your email address for borisfucked.me story submission',
         message=render_to_string('email.html', dict(story=story)),
-        from_email='hello@filipwieland.com',
+        from_email='noreply@borisfucked.me',
         recipient_list=[story.author_email]
     )
     return HttpResponseRedirect(reverse('yourstories:story', args=(story.id,)))

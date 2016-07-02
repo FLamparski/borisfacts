@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'anymail'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -125,6 +126,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = '127.0.0.1'
-EMAIL_PORT = 1025
+SERVER_EMAIL = 'server@borisfucked.me'
+DEFAULT_FROM_EMAIL = 'noreply@borisfucked.me'
+ANYMAIL = {
+    'MAILGUN_API_KEY': os.getenv('BORIS_MAILGUN_KEY')
+}
+EMAIL_BACKEND = 'anymail.backends.mailgun.MailgunBackend'
