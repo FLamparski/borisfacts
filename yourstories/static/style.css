@@ -49,3 +49,7 @@ fieldset > input, fieldset > textarea {
   display: block;
   width: 100%;
 }
+
+.error {
+  color: #cc4444;
+}

@@ -1,0 +1,15 @@
+{% extends 'layouts/master.html' %}
+
+{% block title %}Error | Boris Fucked Me{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col span-12-t">
+      <p class="error">
+        {{message}}
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

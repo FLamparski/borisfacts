@@ -1,0 +1,12 @@
+Hi {{story.author|default:'Anonymous'}},
+
+Your story, {{story.title}}, is almost ready to be published on
+borisfucked.me.
+
+Before we publish your story, we would like you to confirm your email address
+for us. To do so, simply visit the link below:
+
+http://borisfucked.me{% url 'yourstories:verify' story.id story.email_verification_code %}
+
+Best regards,
+borisfucked.me admin

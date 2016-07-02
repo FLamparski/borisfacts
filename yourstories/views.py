@@ -1,7 +1,9 @@
+from uuid import UUID
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.mail import mail_admins, send_mail
+from django.template.loader import render_to_string
 
 from .models import Story
 
@@ -41,10 +43,22 @@ def post_handler(request):
         subject='New story submitted: {} by {}'.format(story.title, story.author or 'Anonymous'),
         message='A new story was submitted, please view it on the admin portal. Id: {}'.format(story.id)
     )
+    send_mail(
+        subject='Please confirm your email address for borisfucked.me story submission',
+        message=render_to_string('email.html', dict(story=story)),
+        from_email='hello@filipwieland.com',
+        recipient_list=[story.author_email]
+    )
     return HttpResponseRedirect(reverse('yourstories:story', args=(story.id,)))
 
 def story(request, id):
     return render(request, 'story.html', dict(story=get_object_or_404(Story, pk=id)))
 
 def verify(request, id, code):
-    return 'ha'
+    story = get_object_or_404(Story, pk=id)
+    if UUID(code) == story.email_verification_code:
+        story.author_email_verified = True
+        story.save()
+        return HttpResponseRedirect(reverse('yourstories:story', args=(story.id,)))
+    else:
+        return render(request, 'error.html', dict(message='Sorry, confirmation failed. Story could be already confirmed.'))
